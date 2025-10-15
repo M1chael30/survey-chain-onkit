@@ -70,28 +70,24 @@ export default function ScreeningForm({ form }) {
       )}
      />
 
-     <div className="grid grid-cols-12 gap-4">
-      <div className="col-span-4">
-       <FormField
-        control={form.control}
-        name="screeningDateTime"
-        render={({ field }) => (
-         <FormItem>
-          <FormLabel>Screening Date & Time</FormLabel>
-          <FormControl>
-           <SmartDatetimeInput
-            value={field.value}
-            onValueChange={field.onChange}
-            placeholder="e.g. Tomorrow morning 9am"
-            hour12
-           />
-          </FormControl>
-          <FormMessage />
-         </FormItem>
-        )}
-       />
-      </div>
-     </div>
+     <FormField
+      control={form.control}
+      name="screeningDateTime"
+      render={({ field }) => (
+       <FormItem>
+        <FormLabel>Screening Date & Time</FormLabel>
+        <FormControl>
+         <SmartDatetimeInput
+          value={field.value}
+          onValueChange={field.onChange}
+          placeholder="e.g. Tomorrow morning 9am"
+          hour12
+         />
+        </FormControl>
+        <FormMessage />
+       </FormItem>
+      )}
+     />
 
      <FormField
       control={form.control}
@@ -130,51 +126,48 @@ export default function ScreeningForm({ form }) {
    </Card>
 
    {/* screening date and time */}
-   <div className="col-span-4">
-    <FormField
-     control={form.control}
-     name="screeningDateTime"
-     render={({ field }) => (
-      <FormItem>
-       <FormLabel>Screening Date & Time</FormLabel>
-       <FormControl>
-        <SmartDatetimeInput
-         value={field.value}
-         onValueChange={field.onChange}
-         placeholder="e.g. Tomorrow morning 9am"
-         hour12
-        />
-       </FormControl>
-       <FormMessage />
-      </FormItem>
-     )}
-    />
+   <FormField
+    control={form.control}
+    name="screeningDateTime"
+    render={({ field }) => (
+     <FormItem>
+      <FormLabel>Screening Date & Time</FormLabel>
+      <FormControl>
+       <SmartDatetimeInput
+        value={field.value}
+        onValueChange={field.onChange}
+        placeholder="e.g. Tomorrow morning 9am"
+        hour12
+       />
+      </FormControl>
+      <FormMessage />
+     </FormItem>
+    )}
+   />
 
-    <div className="col-span-6">
-     <FormField
-      control={form.control}
-      name="surveyFinalizeDate"
-      render={({ field }) => (
-       <FormItem>
-        <FormLabel>Survey Finalize Date</FormLabel>
-        <FormControl>
-         <SmartDatetimeInput
-          value={field.value}
-          onValueChange={field.onChange}
-          placeholder="e.g. Tomorrow morning 9am"
-          hour12
-         />
-        </FormControl>
-        <FormDescription>
-         The date and time when the survey automatically finalizes and
-         distributes ETH rewards to all respondents.
-        </FormDescription>
-        <FormMessage />
-       </FormItem>
-      )}
-     />
-    </div>
-   </div>
+   {/* survey finalize date */}
+   <FormField
+    control={form.control}
+    name="surveyFinalizeDate"
+    render={({ field }) => (
+     <FormItem>
+      <FormLabel>Survey Finalize Date</FormLabel>
+      <FormControl>
+       <SmartDatetimeInput
+        value={field.value}
+        onValueChange={field.onChange}
+        placeholder="e.g. Tomorrow morning 9am"
+        hour12
+       />
+      </FormControl>
+      <FormDescription>
+       The date and time when the survey automatically finalizes and distributes
+       ETH rewards to all respondents.
+      </FormDescription>
+      <FormMessage />
+     </FormItem>
+    )}
+   />
   </>
  );
 }

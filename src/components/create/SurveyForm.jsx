@@ -4,26 +4,16 @@ import { Button } from "@/components/ui/button";
 import {
  Form,
  FormControl,
- FormDescription,
  FormField,
  FormItem,
  FormLabel,
  FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
- Card,
- CardContent,
- CardDescription,
- CardHeader,
- CardTitle,
-} from "@/components/ui/card";
 import Questions from "./Questions";
-import { Calendar } from "lucide-react";
-import { SmartDatetimeInput } from "@/components/ui/smart-datetime-input";
 import { useAccount } from "wagmi";
 import ScreeningForm from "./ScreeningForm";
+import InputField from "./InputField";
 
 export default function SurveyForm({ form, onSubmit }) {
  const { address } = useAccount();
@@ -34,20 +24,15 @@ export default function SurveyForm({ form, onSubmit }) {
     onSubmit={form.handleSubmit(onSubmit)}
     className="space-y-5 max-w-3xl mx-auto"
    >
-    <FormField
-     control={form.control}
-     name="title"
-     render={({ field }) => (
-      <FormItem>
-       <FormLabel>Survey Title *</FormLabel>
-       <FormControl>
-        <Input placeholder="Enter survey title" type="text" {...field} />
-       </FormControl>
-       <FormMessage />
-      </FormItem>
-     )}
+    {/* survey title */}
+    <InputField
+     form={form}
+     formFieldName="title"
+     formLabel="Survey Title *"
+     placeholder="Enter survey title"
     />
 
+    {/* survey description */}
     <FormField
      control={form.control}
      name="description"
@@ -67,38 +52,24 @@ export default function SurveyForm({ form, onSubmit }) {
      )}
     />
 
-    <FormField
-     control={form.control}
-     name="numberOfRespondents"
-     render={({ field }) => (
-      <FormItem>
-       <FormLabel>Number of Respondents *</FormLabel>
-       <FormControl>
-        <Input placeholder="10" type="number" {...field} />
-       </FormControl>
-       <FormDescription>
-        How many people do you want to complete this survey?
-       </FormDescription>
-       <FormMessage />
-      </FormItem>
-     )}
+    {/* number of respondents */}
+    <InputField
+     form={form}
+     formFieldName="numberOfRespondents"
+     formLabel="Number of Respondents *"
+     placeholder="ex. 10"
+     type="number"
+     formDescription="How many people do you want to complete this survey?"
     />
 
-    <FormField
-     control={form.control}
-     name="reward"
-     render={({ field }) => (
-      <FormItem>
-       <FormLabel>Total Reward (ETH) *</FormLabel>
-       <FormControl>
-        <Input placeholder="0.0001" type="number" {...field} />
-       </FormControl>
-       <FormDescription>
-        This amount will be split among all accepted respondents
-       </FormDescription>
-       <FormMessage />
-      </FormItem>
-     )}
+    {/* total reward */}
+    <InputField
+     form={form}
+     formFieldName="reward"
+     formLabel="Total Reward (ETH) *"
+     placeholder="ex. 0.0001"
+     type="number"
+     formDescription="This amount will be split among all accepted respondents"
     />
 
     {/* screening form */}
