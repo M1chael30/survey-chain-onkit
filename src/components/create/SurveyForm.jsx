@@ -11,13 +11,10 @@ import {
 } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import Questions from "./Questions";
-import { useAccount } from "wagmi";
 import ScreeningForm from "./ScreeningForm";
 import InputField from "./InputField";
 
 export default function SurveyForm({ form, onSubmit }) {
- const { address } = useAccount();
-
  return (
   <Form {...form}>
    <form
@@ -82,7 +79,7 @@ export default function SurveyForm({ form, onSubmit }) {
      <Button
       type="submit"
       className="flex-1 bg-gradient-to-r from-emerald-500 to-lime-500 hover:from-emerald-600 hover:to-lime-600"
-      disabled={form.formState.isSubmitting || !address}
+      disabled={form.formState.isSubmitting}
      >
       {form.formState.isSubmitting
        ? "Creating..."
@@ -92,12 +89,6 @@ export default function SurveyForm({ form, onSubmit }) {
       Cancel
      </Button>
     </div>
-
-    {!address && (
-     <p className="text-sm text-destructive text-center">
-      Please connect your wallet to create a survey
-     </p>
-    )}
    </form>
   </Form>
  );
