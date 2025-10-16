@@ -65,7 +65,7 @@ export default function DashboardPage() {
    icon: TrendingUp,
   },
   {
-   title: "Total Responses",
+   title: "Total Respondents",
    data: totalResponses,
    icon: Users,
   },
