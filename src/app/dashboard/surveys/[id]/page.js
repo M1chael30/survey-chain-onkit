@@ -142,9 +142,11 @@ export default function SurveyManagementPage() {
  const pendingApplicants = survey.applicants.filter(
   (a) => a.status === "pending"
  );
+
  const acceptedApplicants = survey.applicants.filter(
   (a) => a.status === "accepted"
  );
+
  const rejectedApplicants = survey.applicants.filter(
   (a) => a.status === "rejected"
  );
