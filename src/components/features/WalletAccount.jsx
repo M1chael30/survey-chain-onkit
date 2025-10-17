@@ -40,7 +40,7 @@ export default function WalletAccount() {
             <WalletDropdownLink
               target="_blank"
               href="https://keys.coinbase.com"
-              icon="wallet"
+              icon="/file.svg"
               className={"relative"}
             >
               Wallet

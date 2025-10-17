@@ -21,16 +21,16 @@ export default function Providers({ children }) {
             projectId={process.env.NEXT_PUBLIC_CDP_PROJECT_ID}
             config={{
               appearance: {
-                name: "Hello World",
-                logo: "https://example.com/logo.png",
-                mode: "light",
+                name: "Survey Chain 🪙",
+                logo: "/survey_chain_logo.svg",
+                mode: "dark",
                 theme: "base",
               },
               wallet: {
                 display: "modal",
                 preference: "all",
-                termsUrl: "https://example.com/terms",
-                privacyUrl: "https://example.com/privacy",
+                termsUrl: "/terms",
+                privacyUrl: "/privacy",
                 supportedWallets: {
                   rabby: true,
                   trust: true,
